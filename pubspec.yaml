@@ -1,0 +1,52 @@
+name: study_sleep_tracker
+description: >
+  Versione Flutter (sottoinsieme) dell'app di gestione studio, sonno e sveglie.
+  Progetto per l'esame di Programmazione Mobile.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State management (MVVM): ChangeNotifier + Provider/InheritedWidget
+  provider: ^6.1.2
+
+  # Persistenza relazionale (equivalente di Room/SQLite lato Kotlin)
+  sqflite: ^2.3.3+1
+  path: ^1.9.0
+
+  # Persistenza chiave-valore (equivalente delle Android Shared Preferences)
+  shared_preferences: ^2.2.3
+
+  # Riproduzione del suono della sveglia (RF3-bis). Unico plugin esterno
+  # non direttamente ricollegabile al materiale del corso: usato solo per
+  # emettere audio, non per lo scheduling (che resta un Timer Dart interno
+  # all'app, attivo solo mentre questa è in primo piano — vedi RNF5).
+  audioplayers: ^6.0.0
+
+  # Grafico di andamento delle statistiche settimanali (RF14.1). Come nella
+  # versione Kotlin, un unico grafico a barre non giustificherebbe un
+  # CustomPainter scritto a mano quando esiste una libreria dedicata e ben
+  # mantenuta per l'ecosistema Flutter.
+  fl_chart: ^0.69.0
+
+  cupertino_icons: ^1.0.6
+
+  # Grafico dell'andamento settimanale nel report (sezione 6 del report,
+  # card "Andamento dello studio"/"Andamento del sonno").
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/tutorial/
+    - assets/sounds/
